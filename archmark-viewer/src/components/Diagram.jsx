@@ -6,6 +6,7 @@ import { Icon } from '@iconify/react';
 function Diagram({ architecture }) {
   const { nodes: rawNodes, edges: rawEdges } = architecture;
 
+  
   // Convert nodes from DSL format to React Flow format
   const nodes = Object.values(rawNodes).map((node, index) => ({
     id: node.id,
