@@ -1,0 +1,12 @@
+layout: horizontal
+theme: light
+
+group edge {
+  node api [label="API Gateway", icon=logos:aws-api-gateway, color=#ff9900]
+  node auth [label="Auth", icon=logos:auth0]
+}
+
+node db [label="PostgreSQL", icon=logos:postgresql]
+
+api -> auth
+api -> db

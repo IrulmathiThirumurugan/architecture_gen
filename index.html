@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mermaid Diagram with Icons</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+    // Register logos icon pack (optional if using raw <img> HTML)
+    mermaid.registerIconPacks?.([
+      {
+        name: 'logos',
+        loader: () =>
+          fetch('https://unpkg.com/@iconify-json/logos@1/icons.json').then((res) => res.json()),
+      },
+    ]);
+
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "default",
+      flowchart: { useMaxWidth: true },
+    });
+  </script>
+  <style>
+    .mermaid {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="mermaid">
+  graph LR
+    User["<img src='https://api.iconify.design/logos/twitter.svg' width='20'/> User"] -->|create user| DynamoDB_Users["<img src='https://api.iconify.design/logos/aws-dynamodb.svg' width='20'/> Users"]
+    DynamoDB_Users -->|create follower relationship| DynamoDB_Followers["<img src='https://api.iconify.design/logos/aws-dynamodb.svg' width='20'/> Followers"]
+    DynamoDB_Followers -->|update follower count| DynamoDB_Users
+    User -->|create tweet| DynamoDB_Tweets["<img src='https://api.iconify.design/logos/aws-dynamodb.svg' width='20'/> Tweets"]
+    DynamoDB_Tweets -->|update user tweet count| DynamoDB_Users
+    DynamoDB_Tweets -->|add tweet to list| DynamoDB_Lists["<img src='https://api.iconify.design/logos/aws-dynamodb.svg' width='20'/> Lists"]
+    DynamoDB_Tweets -->|create DM| DynamoDB_DMs["<img src='https://api.iconify.design/logos/aws-dynamodb.svg' width='20'/> DMs"]
+    DynamoDB_Tweets -->|create like| DynamoDB_Likes["<img src='https://api.iconify.design/logos/aws-dynamodb.svg' width='20'/> Likes"]
+    DynamoDB_Tweets -->|create retweet| DynamoDB_Retweets["<img src='https://api.iconify.design/logos/aws-dynamodb.svg' width='20'/> Retweets"]
+    DynamoDB_Tweets -->|create comment| DynamoDB_Comments["<img src='https://api.iconify.design/logos/aws-dynamodb.svg' width='20'/> Comments"]
+    DynamoDB_Tweets -->|create hashtag| DynamoDB_Hashtags["<img src='https://api.iconify.design/logos/aws-dynamodb.svg' width='20'/> Hashtags"]
+    DynamoDB_Tweets -->|create graph edge| Neptune_Graph_DB["<img src='https://api.iconify.design/logos/aws-neptune.svg' width='20'/> Graph DB"]
+    Neptune_Graph_DB -->|update tweet relationships| DynamoDB_Tweets
+    Neptune_Graph_DB -->|update user relationships| DynamoDB_Users
+  </div>
+</body>
+</html>

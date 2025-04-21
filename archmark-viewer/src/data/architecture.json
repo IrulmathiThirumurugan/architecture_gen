@@ -1,0 +1,52 @@
+{
+    "layout": "horizontal",
+    "theme": "light",
+    "nodes": [
+      {
+        "id": "db",
+        "label": "PostgreSQL",
+        "icon": "logos:postgresql"
+      },
+      {
+        "id": "api",
+        "label": "API Gateway",
+        "icon": "logos:aws-api-gateway",
+        "color": "#ff9900",
+        "group": "edge"
+      },
+      {
+        "id": "auth",
+        "label": "Auth",
+        "icon": "logos:auth0",
+        "group": "edge"
+      }
+    ],
+    "edges": [
+      {
+        "from": "api",
+        "to": "auth"
+      },
+      {
+        "from": "api",
+        "to": "db"
+      }
+    ],
+    "groups": [
+      {
+        "name": "edge",
+        "nodes": [
+          {
+            "id": "api",
+            "label": "API Gateway",
+            "icon": "logos:aws-api-gateway",
+            "color": "#ff9900"
+          },
+          {
+            "id": "auth",
+            "label": "Auth",
+            "icon": "logos:auth0"
+          }
+        ]
+      }
+    ]
+  }

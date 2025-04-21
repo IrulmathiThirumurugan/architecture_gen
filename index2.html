@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mermaid Diagram with Icons</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.3/dist/mermaid.esm.min.mjs';
+
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "default",
+      securityLevel: "loose"
+    });
+  </script>
+  <style>
+    .mermaid {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="mermaid">
+  graph LR
+
+    %% --- Process Flow Map ---
+    subgraph "Process Flow Map"
+        direction LR
+        Rabbit_Spark["Raw idea spark"] --> Idea_V1["Fully formed conceptual pass"]
+        Idea_V1 --> Exec_Summary["High-level overview"]
+        Exec_Summary --> Checklist["Actionable build phases"]
+        Checklist --> Mods_Reframes["Optional changes"]
+        Mods_Reframes --> CBT_Ref["Emotional/cognitive summary"]
+        CBT_Ref --> Career_Reflection["Strategic value + alignment"]
+        Career_Reflection -->> Rabbit_Spark
+    end
+    
+    %% --- Vault Structure Diagram ---
+    subgraph "Vault Structure Diagram"
+        direction LR
+        Vault["In Progress"] --> V1_Concepts["Version 1 Concepts"]
+        V1_Concepts --> Vault_Mods["Modifications & Reframes"]
+        Vault_Mods --> Reflections["Reflections"]
+        Reflections --> CBT_Summaries["CBT Summaries"]
+        CBT_Summaries --> Career_Logs["Career Growth Logs"]
+        Career_Logs --> Council_Decisions["Council Decisions"]
+        Council_Decisions --> Templates["Templates"]
+    end
+    
+    %% --- Tag & Status Legend ---
+    subgraph "Tag & Status Legend"
+        direction LR
+        Tag_Idea["Ongoing Idea"] --> Tag_V1["Concept Defined"]
+        Tag_V1 --> Tag_CBT["Thought Patterns"]
+        Tag_CBT --> Tag_Skill["Strategic Skill"]
+        Tag_Skill --> Tag_Council["Council Action"]
+        Tag_Council --> Tag_Glow["Emotional Resonance (1–10)"]
+    end
+    
+    %% --- Editor Voices - Reflection Wheel ---
+    subgraph "Editor Voices - Reflection Wheel"
+        direction LR
+        Strategist["Systems, tempo, contribution"] --> Equity["Inclusion, impact, integrity"]
+        Equity --> PR["Clarity, coherence, reputation"]
+        PR --> Glow["Joy, curiosity, protection"]
+    end
+    
+    %% --- Rabbit Log Lifecycle ---
+    subgraph "Rabbit Log Lifecycle"
+        direction LR
+        Life_InProgress["Raw idea spark"] --> Life_V1["Fully formed conceptual pass"]
+        Life_V1 --> Life_Exec["High-level overview"]
+        Life_Exec --> Life_Archived["Actionable build phases"]
+    end
+    
+  </div>
+</body>
+</html>
